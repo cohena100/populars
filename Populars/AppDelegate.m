@@ -21,6 +21,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.tintColor = [UIColor brownColor];
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     [self setupModel];
     ArtistsTableViewController *masterViewController = (ArtistsTableViewController *)navigationController.topViewController;
