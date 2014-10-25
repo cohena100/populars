@@ -9,6 +9,7 @@
 #import "AlbumsCollectionViewController.h"
 #import "Model.h"
 #import "AlbumsCollectionViewCell.h"
+#import "AlbumTableViewController.h"
 
 @interface AlbumsCollectionViewController ()
 
@@ -37,15 +38,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     if ([[segue identifier] isEqualToString:@"showAlbum"]) {
+         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+         NSDictionary *album = self.topAlbums[indexPath.row];
+         AlbumTableViewController *controller = (AlbumTableViewController *)[segue destinationViewController];
+         controller.artist = self.artist;
+         controller.album = album[@"name"];
+         controller.model = self.model;
+     }
  }
- */
 
 #pragma mark <UICollectionViewDataSource>
 

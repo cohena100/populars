@@ -51,6 +51,22 @@
     }];
 }
 
+- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(NSArray *traks, NSArray *images))complete
+{
+    [self.server tracksFromAlbum:album artist:artist complete:^(Response *response) {
+        NSArray *traks = nil;
+        NSArray *images = nil;
+        if (response.ok) {
+            traks = response.body[@"album"][@"tracks"][@"track"];
+            images = response.body[@"album"][@"image"];
+        }
+        else {
+            NSLog(@"%@", response);
+        }
+        complete(traks, images);
+    }];
+}
+
 #pragma mark helpers
 
 - (NSString *)countryCodeFromCountry:(Country)country

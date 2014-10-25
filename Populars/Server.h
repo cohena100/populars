@@ -17,5 +17,6 @@
 
 - (void)topArtistsFromCountry:(Country)country complete:(void (^)(Response *response))complete;
 - (void)topAlbumsFromArtist:(NSString *)artist complete:(void (^)(Response *response))complete;
+- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(Response *response))complete;
 
 @end

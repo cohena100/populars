@@ -40,6 +40,13 @@
     [self get:@"artist.getTopAlbums" additionalQuery:additionalQueryItems complete:complete];
 }
 
+- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(Response *response))complete
+{
+    NSArray *additionalQueryItems = @[[NSURLQueryItem queryItemWithName:@"album" value:album],
+                                      [NSURLQueryItem queryItemWithName:@"artist" value:artist]];
+    [self get:@"album.getInfo" additionalQuery:additionalQueryItems complete:complete];
+}
+
 - (void)get:(NSString *)method additionalQuery:(NSArray *)additionalQuery complete:(void(^)(Response *response))complete {
     NSURL *url = [self composeURLMethod:method additionalQuery:additionalQuery];
     NSURLRequest *request = [self createRequest:url method:@"GET"];
