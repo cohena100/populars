@@ -15,7 +15,7 @@
 
 @interface ArtistsTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *topArtists;
+@property (strong, nonatomic) NSArray *topArtists;
 @property Country county;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *countriesBarButtonItem;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
@@ -110,7 +110,7 @@
     self.county = CountryIsrael;
     [self.model topArtistsFromCountry:self.county complete:^(NSArray *topArtists)
      {
-         self.topArtists = [topArtists mutableCopy];
+         self.topArtists = topArtists;
          [self.tableView reloadData];
      }];
 }
