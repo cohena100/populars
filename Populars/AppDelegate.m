@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "Model.h"
+#import "MasterViewController.h"
+#import "Server.h"
 
 @interface AppDelegate ()
+
+@property(strong, nonatomic) Model *model;
 
 @end
 
@@ -16,7 +21,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    [self setupModel];
+    MasterViewController *masterViewController = (MasterViewController *)navigationController.topViewController;
+    masterViewController.model = self.model;
     return YES;
 }
 
@@ -40,6 +48,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark setup
+
+- (void)setupModel
+{
+    Server *server = [Server new];
+    self.model = [Model modelWithServer:server];
 }
 
 @end
