@@ -11,5 +11,7 @@
 @interface AlbumsCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *playCount;
 
 @end
