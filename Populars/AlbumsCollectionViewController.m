@@ -24,8 +24,6 @@
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.estimatedItemSize = CGSizeMake(126, 178);
     
-   
-    
     self.title = self.artist;
     [self populate];
     
