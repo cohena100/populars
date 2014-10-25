@@ -73,7 +73,7 @@
         NSDateComponentsFormatter *formatter = [NSDateComponentsFormatter new];
         formatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
         NSString *trackLength = [formatter stringFromDateComponents:comps];
-        cell.textLabel.text = [@[self.tracks[index][@"name"], @" (", trackLength, @")"] componentsJoinedByString:@""];
+        cell.textLabel.text = [@[@(row), @". ", self.tracks[index][@"name"], @" (", trackLength, @")"] componentsJoinedByString:@""];
         return cell;
     }
     return nil;
