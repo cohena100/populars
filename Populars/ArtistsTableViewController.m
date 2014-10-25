@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Avi Cohen. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "ArtistsTableViewController.h"
 #import "Global.h"
 #import "Model.h"
-#import "TopArtistsTableViewCell.h"
-#import "AllbumsCollectionViewController.h"
+#import "ArtistsTableViewCell.h"
+#import "AlbumsCollectionViewController.h"
 #import "AlbumsCollectionViewCell.h"
 
-@interface MasterViewController ()
+@interface ArtistsTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *topArtists;
 @property Country county;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation MasterViewController
+@implementation ArtistsTableViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -58,21 +58,13 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showAlbums"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDictionary *artist = self.topArtists[indexPath.row];
-//        AllbumsCollectionViewController *controller = (AllbumsCollectionViewController *)[[segue destinationViewController] topViewController];
-//        controller.artist = artist[@"name"];
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-//        controller.navigationItem.leftItemsSupplementBackButton = YES;
-//    } else if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.topArtists[indexPath.row];
-//        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-//        [controller setDetailItem:object];
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-//        controller.navigationItem.leftItemsSupplementBackButton = YES;
-//    }
+    if ([[segue identifier] isEqualToString:@"showAlbums"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary *artist = self.topArtists[indexPath.row];
+        AlbumsCollectionViewController *controller = (AlbumsCollectionViewController *)[segue destinationViewController];
+        controller.artist = artist[@"name"];
+        controller.model = self.model;
+    }
 }
 
 #pragma mark - Table View
@@ -86,7 +78,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TopArtistsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ArtistsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDictionary *artist = self.topArtists[indexPath.row];
     cell.artistNameLabel.text = artist[@"name"];

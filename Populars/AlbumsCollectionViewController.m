@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Avi Cohen. All rights reserved.
 //
 
-#import "AllbumsCollectionViewController.h"
+#import "AlbumsCollectionViewController.h"
 #import "Model.h"
 #import "AlbumsCollectionViewCell.h"
 
-@interface AllbumsCollectionViewController ()
+@interface AlbumsCollectionViewController ()
 
 @property (strong, nonatomic) NSArray *topAlbums;
 
 @end
 
-@implementation AllbumsCollectionViewController
+@implementation AlbumsCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,9 +26,6 @@
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,9 +58,9 @@
     AlbumsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumsCollectionViewCell" forIndexPath:indexPath];
     
     NSDictionary *album = self.topAlbums[indexPath.row];
-    NSURL *imageURL = [self correctImageUrl:album[@"name"]];
+    NSURL *imageURL = [self correctImageUrl:album[@"image"]];
     UIImage *originalImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-    UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(64, 48)];
+    UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(126, 126)];
     cell.albumImageView.image = resizedImage;
     cell.albumImageView.layer.cornerRadius = 4;
     cell.albumImageView.layer.masksToBounds = YES;
@@ -81,12 +78,9 @@
 }
 */
 
-/*
-// Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -103,12 +97,21 @@
 }
 */
 
+#pragma mark UICollectionViewFlowLayoutDelegate
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(126, 126);
+}
+
 #pragma mark Population
 
 - (void)populate
 {
-    [self.model topAlbumsFromArtist:self.artist complete:^(NSArray *topArtists)
+    [self.model topAlbumsFromArtist:self.artist complete:^(NSArray *topAlbums)
      {
+         self.topAlbums = topAlbums;
+         [self.collectionView reloadData];
      }];
 }
 
@@ -117,7 +120,7 @@
 - (NSURL *)correctImageUrl:(NSArray *)images {
     for (NSDictionary *image in images) {
         NSString *size = image[@"size"];
-        if ([size isEqualToString:@"medium"]) {
+        if ([size isEqualToString:@"large"]) {
             return [NSURL URLWithString:image[@"#text"]];
         }
     }

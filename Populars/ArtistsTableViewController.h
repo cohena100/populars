@@ -11,7 +11,7 @@
 @class DetailViewController;
 @class Model;
 
-@interface MasterViewController : UITableViewController
+@interface ArtistsTableViewController : UITableViewController
 
 @property (strong, nonatomic) Model *model;
 

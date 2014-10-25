@@ -23,16 +23,59 @@
             </objects>
             <point key="canvasLocation" x="459" y="564"/>
         </scene>
+        <!--Albums Collection View Controller-->
+        <scene sceneID="j9G-nA-c43">
+            <objects>
+                <collectionViewController id="EGO-b3-cyO" customClass="AlbumsCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vfA-Hj-c60">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PYI-w1-jVX">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumsCollectionViewCell" id="sxH-ib-Xul" customClass="AlbumsCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7LZ-mb-STn">
+                                            <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="126" height="126"/>
+                                <connections>
+                                    <outlet property="albumImageView" destination="7LZ-mb-STn" id="tpk-rw-Cmr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EGO-b3-cyO" id="tqo-Du-yfG"/>
+                            <outlet property="delegate" destination="EGO-b3-cyO" id="lWg-e5-00f"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8z-OR-Z1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="1282"/>
+        </scene>
         <!--Popular Artists-->
         <scene sceneID="jN5-2b-m0R">
             <objects>
-                <tableViewController title="Popular Artists" clearsSelectionOnViewWillAppear="NO" id="SRh-ik-S9B" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController title="Popular Artists" clearsSelectionOnViewWillAppear="NO" id="SRh-ik-S9B" customClass="ArtistsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="APp-p0-ljU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="65" id="nok-gl-ADF" customClass="TopArtistsTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="65" id="nok-gl-ADF" customClass="ArtistsTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nok-gl-ADF" id="qs1-NL-ABw">
@@ -97,6 +140,7 @@
                                     <outlet property="artistImageView" destination="nBf-cs-PaZ" id="95r-Mm-yE5"/>
                                     <outlet property="artistListenersLabel" destination="mcZ-KV-6h8" id="fPu-Lj-0SS"/>
                                     <outlet property="artistNameLabel" destination="uiU-vh-QOj" id="2L5-83-nFp"/>
+                                    <segue destination="EGO-b3-cyO" kind="show" identifier="showAlbums" id="OTP-5H-tB1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -106,23 +150,11 @@
                             <outlet property="delegate" destination="SRh-ik-S9B" id="vMw-fL-YI8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Popular Artists" id="TG8-ck-dDV">
-                        <barButtonItem key="rightBarButtonItem" image="israel" id="OU0-5t-50k">
-                            <connections>
-                                <action selector="countriesTapped:" destination="SRh-ik-S9B" id="1Fi-ak-ZUI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="countriesBarButtonItem" destination="OU0-5t-50k" id="vF8-FM-iG8"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Popular Artists" id="TG8-ck-dDV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7K-SQ-uVS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333" y="525"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="israel" width="28" height="20"/>
-    </resources>
 </document>

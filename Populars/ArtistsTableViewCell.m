@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Avi Cohen. All rights reserved.
 //
 
-#import "TopArtistsTableViewCell.h"
+#import "ArtistsTableViewCell.h"
 
-@interface TopArtistsTableViewCell ()
+@interface ArtistsTableViewCell ()
 
 @end
 
-@implementation TopArtistsTableViewCell
+@implementation ArtistsTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -42,7 +42,7 @@
     [self.server topAlbumsFromArtist:artist complete:^(Response *response) {
         NSArray *topAlbums = nil;
         if (response.ok) {
-            topAlbums = response.body[@"topablums"][@"album"];
+            topAlbums = response.body[@"topalbums"][@"album"];
         }
         else {
             NSLog(@"%@", response);

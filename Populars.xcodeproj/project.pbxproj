@@ -14,11 +14,11 @@
 		04680D7F19FB8C86008C071D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04680D7D19FB8C86008C071D /* LaunchScreen.xib */; };
 		04680D8B19FB8C87008C071D /* PopularsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D8A19FB8C87008C071D /* PopularsTests.m */; };
 		04680DA419FB8D41008C071D /* AlbumsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9519FB8D41008C071D /* AlbumsCollectionViewCell.m */; };
-		04680DA519FB8D41008C071D /* AllbumsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9719FB8D41008C071D /* AllbumsCollectionViewController.m */; };
-		04680DA619FB8D41008C071D /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9919FB8D41008C071D /* MasterViewController.m */; };
+		04680DA519FB8D41008C071D /* AlbumsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9719FB8D41008C071D /* AlbumsCollectionViewController.m */; };
+		04680DA619FB8D41008C071D /* ArtistsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9919FB8D41008C071D /* ArtistsTableViewController.m */; };
 		04680DA719FB8D41008C071D /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9B19FB8D41008C071D /* Model.m */; };
 		04680DA819FB8D41008C071D /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9D19FB8D41008C071D /* Server.m */; };
-		04680DA919FB8D41008C071D /* TopArtistsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9E19FB8D41008C071D /* TopArtistsTableViewCell.m */; };
+		04680DA919FB8D41008C071D /* ArtistsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680D9E19FB8D41008C071D /* ArtistsTableViewCell.m */; };
 		04680DAA19FB8D41008C071D /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680DA019FB8D41008C071D /* Global.m */; };
 		04680DAB19FB8D41008C071D /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680DA219FB8D41008C071D /* Response.m */; };
 /* End PBXBuildFile section */
@@ -47,20 +47,20 @@
 		04680D8A19FB8C87008C071D /* PopularsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularsTests.m; sourceTree = "<group>"; };
 		04680D9419FB8D41008C071D /* AlbumsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsCollectionViewCell.h; sourceTree = "<group>"; };
 		04680D9519FB8D41008C071D /* AlbumsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsCollectionViewCell.m; sourceTree = "<group>"; };
-		04680D9619FB8D41008C071D /* AllbumsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllbumsCollectionViewController.h; sourceTree = "<group>"; };
-		04680D9719FB8D41008C071D /* AllbumsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllbumsCollectionViewController.m; sourceTree = "<group>"; };
-		04680D9819FB8D41008C071D /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		04680D9919FB8D41008C071D /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		04680D9619FB8D41008C071D /* AlbumsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsCollectionViewController.h; sourceTree = "<group>"; };
+		04680D9719FB8D41008C071D /* AlbumsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsCollectionViewController.m; sourceTree = "<group>"; };
+		04680D9819FB8D41008C071D /* ArtistsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsTableViewController.h; sourceTree = "<group>"; };
+		04680D9919FB8D41008C071D /* ArtistsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsTableViewController.m; sourceTree = "<group>"; };
 		04680D9A19FB8D41008C071D /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		04680D9B19FB8D41008C071D /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		04680D9C19FB8D41008C071D /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		04680D9D19FB8D41008C071D /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
-		04680D9E19FB8D41008C071D /* TopArtistsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopArtistsTableViewCell.m; sourceTree = "<group>"; };
+		04680D9E19FB8D41008C071D /* ArtistsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsTableViewCell.m; sourceTree = "<group>"; };
 		04680D9F19FB8D41008C071D /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		04680DA019FB8D41008C071D /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		04680DA119FB8D41008C071D /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
 		04680DA219FB8D41008C071D /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
-		04680DA319FB8D41008C071D /* TopArtistsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopArtistsTableViewCell.h; sourceTree = "<group>"; };
+		04680DA319FB8D41008C071D /* ArtistsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,14 +165,14 @@
 			children = (
 				04680D7219FB8C86008C071D /* AppDelegate.h */,
 				04680D7319FB8C86008C071D /* AppDelegate.m */,
+				04680D9819FB8D41008C071D /* ArtistsTableViewController.h */,
+				04680D9919FB8D41008C071D /* ArtistsTableViewController.m */,
+				04680DA319FB8D41008C071D /* ArtistsTableViewCell.h */,
+				04680D9E19FB8D41008C071D /* ArtistsTableViewCell.m */,
+				04680D9619FB8D41008C071D /* AlbumsCollectionViewController.h */,
+				04680D9719FB8D41008C071D /* AlbumsCollectionViewController.m */,
 				04680D9419FB8D41008C071D /* AlbumsCollectionViewCell.h */,
 				04680D9519FB8D41008C071D /* AlbumsCollectionViewCell.m */,
-				04680D9619FB8D41008C071D /* AllbumsCollectionViewController.h */,
-				04680D9719FB8D41008C071D /* AllbumsCollectionViewController.m */,
-				04680D9819FB8D41008C071D /* MasterViewController.h */,
-				04680D9919FB8D41008C071D /* MasterViewController.m */,
-				04680DA319FB8D41008C071D /* TopArtistsTableViewCell.h */,
-				04680D9E19FB8D41008C071D /* TopArtistsTableViewCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -288,13 +288,13 @@
 			files = (
 				04680DA419FB8D41008C071D /* AlbumsCollectionViewCell.m in Sources */,
 				04680DAB19FB8D41008C071D /* Response.m in Sources */,
-				04680DA519FB8D41008C071D /* AllbumsCollectionViewController.m in Sources */,
+				04680DA519FB8D41008C071D /* AlbumsCollectionViewController.m in Sources */,
 				04680DAA19FB8D41008C071D /* Global.m in Sources */,
 				04680DA819FB8D41008C071D /* Server.m in Sources */,
 				04680D7419FB8C86008C071D /* AppDelegate.m in Sources */,
 				04680DA719FB8D41008C071D /* Model.m in Sources */,
-				04680DA619FB8D41008C071D /* MasterViewController.m in Sources */,
-				04680DA919FB8D41008C071D /* TopArtistsTableViewCell.m in Sources */,
+				04680DA619FB8D41008C071D /* ArtistsTableViewController.m in Sources */,
+				04680DA919FB8D41008C071D /* ArtistsTableViewCell.m in Sources */,
 				04680D7119FB8C86008C071D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

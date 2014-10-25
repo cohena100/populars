@@ -10,7 +10,7 @@
 
 @class Model;
 
-@interface AllbumsCollectionViewController : UICollectionViewController
+@interface AlbumsCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property(strong, nonatomic) NSString *artist;
 @property (strong, nonatomic) Model *model;

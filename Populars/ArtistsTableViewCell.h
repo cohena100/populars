@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopArtistsTableViewCell : UITableViewCell
+@interface ArtistsTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *artistImageView;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;

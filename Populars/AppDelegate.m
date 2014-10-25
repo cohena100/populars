@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Model.h"
-#import "MasterViewController.h"
+#import "ArtistsTableViewController.h"
 #import "Server.h"
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     [self setupModel];
-    MasterViewController *masterViewController = (MasterViewController *)navigationController.topViewController;
+    ArtistsTableViewController *masterViewController = (ArtistsTableViewController *)navigationController.topViewController;
     masterViewController.model = self.model;
     return YES;
 }
