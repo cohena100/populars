@@ -155,6 +155,83 @@
             </objects>
             <point key="canvasLocation" x="1333" y="1334"/>
         </scene>
+        <!--Flags Popover View Controller-->
+        <scene sceneID="lcs-Pe-gH2">
+            <objects>
+                <viewController storyboardIdentifier="flags" id="PnI-U9-y1z" customClass="FlagsPopoverViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QHP-fw-gPa"/>
+                        <viewControllerLayoutGuide type="bottom" id="26o-FU-xik"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9J7-M2-5VN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T65-LA-8Sg">
+                                <rect key="frame" x="281" y="251" width="38" height="22"/>
+                                <state key="normal" image="us">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedUS:" destination="PnI-U9-y1z" eventType="touchUpInside" id="qQa-ej-KMd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfQ-HT-HSF">
+                                <rect key="frame" x="280" y="327" width="40" height="22"/>
+                                <state key="normal" image="ca">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedCA:" destination="PnI-U9-y1z" eventType="touchUpInside" id="rMZ-eU-KlL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npH-as-ppP">
+                                <rect key="frame" x="280" y="289" width="40" height="22"/>
+                                <state key="normal" image="gb">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedGB:" destination="PnI-U9-y1z" eventType="touchUpInside" id="1Jh-DD-2pC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS6-jY-CPc">
+                                <rect key="frame" x="286" y="213" width="28" height="22"/>
+                                <state key="normal" image="il">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedIL:" destination="PnI-U9-y1z" eventType="touchUpInside" id="Cwj-rc-ZEd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-GL-wOT">
+                                <rect key="frame" x="285" y="365" width="30" height="22"/>
+                                <state key="normal" image="fr">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedFR:" destination="PnI-U9-y1z" eventType="touchUpInside" id="Hwd-hK-XkM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TfQ-HT-HSF" firstAttribute="leading" secondItem="npH-as-ppP" secondAttribute="leading" id="9Fb-Fk-bfZ"/>
+                            <constraint firstItem="Th9-GL-wOT" firstAttribute="centerX" secondItem="9J7-M2-5VN" secondAttribute="centerX" id="C7a-r4-fxR"/>
+                            <constraint firstItem="T65-LA-8Sg" firstAttribute="top" secondItem="fS6-jY-CPc" secondAttribute="bottom" constant="16" id="CY5-ST-ovU"/>
+                            <constraint firstItem="Th9-GL-wOT" firstAttribute="centerX" secondItem="TfQ-HT-HSF" secondAttribute="centerX" id="Cgc-wM-m8p"/>
+                            <constraint firstItem="T65-LA-8Sg" firstAttribute="centerX" secondItem="npH-as-ppP" secondAttribute="centerX" id="Ied-Kz-OUx"/>
+                            <constraint firstItem="TfQ-HT-HSF" firstAttribute="top" secondItem="npH-as-ppP" secondAttribute="bottom" constant="16" id="ZKi-eG-W8w"/>
+                            <constraint firstItem="npH-as-ppP" firstAttribute="centerY" secondItem="9J7-M2-5VN" secondAttribute="centerY" id="ZWE-aO-rWP"/>
+                            <constraint firstItem="fS6-jY-CPc" firstAttribute="centerX" secondItem="T65-LA-8Sg" secondAttribute="centerX" id="eeo-VE-HlO"/>
+                            <constraint firstItem="Th9-GL-wOT" firstAttribute="top" secondItem="TfQ-HT-HSF" secondAttribute="bottom" constant="16" id="ypB-f7-2Km"/>
+                            <constraint firstItem="npH-as-ppP" firstAttribute="top" secondItem="T65-LA-8Sg" secondAttribute="bottom" constant="16" id="zav-fo-kDE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1F-s5-jL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="2103"/>
+        </scene>
         <!--Popular Artists-->
         <scene sceneID="jN5-2b-m0R">
             <objects>
@@ -240,8 +317,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Popular Artists" id="TG8-ck-dDV">
-                        <barButtonItem key="rightBarButtonItem" image="il" id="Pjs-Je-ecl"/>
+                        <barButtonItem key="rightBarButtonItem" image="il" id="Pjs-Je-ecl">
+                            <connections>
+                                <action selector="countriesTapped:" destination="SRh-ik-S9B" id="IGD-U6-AZC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="countryButtonItem" destination="Pjs-Je-ecl" id="11V-hU-MGs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7K-SQ-uVS" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,6 +333,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ca" width="40" height="20"/>
+        <image name="fr" width="30" height="20"/>
+        <image name="gb" width="40" height="20"/>
         <image name="il" width="28" height="20"/>
+        <image name="us" width="38" height="20"/>
     </resources>
 </document>

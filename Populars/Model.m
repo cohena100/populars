@@ -67,19 +67,4 @@
     }];
 }
 
-#pragma mark helpers
-
-- (NSString *)countryCodeFromCountry:(Country)country
-{
-    switch (country) {
-        case CountryIsrael:
-            return @"israel";
-            break;
-            
-        default:
-            break;
-    }
-    return nil;
-}
-
 @end

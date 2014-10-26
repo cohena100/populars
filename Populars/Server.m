@@ -110,8 +110,20 @@
 
 - (NSString *)countryStringFromCountry:(Country)country {
     switch (country) {
-        case CountryIsrael:
+        case CountryIL:
             return @"israel";
+            break;
+        case CountryUS:
+            return @"united states";
+            break;
+        case CountryGB:
+            return @"united kingdom";
+            break;
+        case CountryCA:
+            return @"canada";
+            break;
+        case CountryFR:
+            return @"france";
             break;
         default:
             break;

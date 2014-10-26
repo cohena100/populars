@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlagsPopoverViewController.h"
 
 @class DetailViewController;
 @class Model;
 
-@interface ArtistsTableViewController : UITableViewController
+@interface ArtistsTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate, FlagsPopoverViewControllerDelegate>
 
 @property (strong, nonatomic) Model *model;
 

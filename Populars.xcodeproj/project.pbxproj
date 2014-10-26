@@ -23,6 +23,7 @@
 		04680DAB19FB8D41008C071D /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680DA219FB8D41008C071D /* Response.m */; };
 		04680DB519FBB506008C071D /* AlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680DB419FBB506008C071D /* AlbumTableViewCell.m */; };
 		04680DB819FBB52D008C071D /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04680DB719FBB52D008C071D /* AlbumTableViewController.m */; };
+		04CB0BC619FCEDC600E5C302 /* FlagsPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB0BC519FCEDC600E5C302 /* FlagsPopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		04680DB419FBB506008C071D /* AlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewCell.m; sourceTree = "<group>"; };
 		04680DB619FBB52D008C071D /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
 		04680DB719FBB52D008C071D /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
+		04CB0BC419FCEDC600E5C302 /* FlagsPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsPopoverViewController.h; sourceTree = "<group>"; };
+		04CB0BC519FCEDC600E5C302 /* FlagsPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlagsPopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				04680DB719FBB52D008C071D /* AlbumTableViewController.m */,
 				04680DB319FBB506008C071D /* AlbumTableViewCell.h */,
 				04680DB419FBB506008C071D /* AlbumTableViewCell.m */,
+				04CB0BC419FCEDC600E5C302 /* FlagsPopoverViewController.h */,
+				04CB0BC519FCEDC600E5C302 /* FlagsPopoverViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			files = (
 				04680DB519FBB506008C071D /* AlbumTableViewCell.m in Sources */,
 				04680DA419FB8D41008C071D /* AlbumsCollectionViewCell.m in Sources */,
+				04CB0BC619FCEDC600E5C302 /* FlagsPopoverViewController.m in Sources */,
 				04680DAB19FB8D41008C071D /* Response.m in Sources */,
 				04680DA519FB8D41008C071D /* AlbumsCollectionViewController.m in Sources */,
 				04680DAA19FB8D41008C071D /* Global.m in Sources */,

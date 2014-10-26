@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, Country) {
-    CountryIsrael,
+    CountryIL,
+    CountryUS,
+    CountryGB,
+    CountryCA,
+    CountryFR,
 };
 
 

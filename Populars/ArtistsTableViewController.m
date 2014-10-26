@@ -17,8 +17,8 @@
 
 @property (strong, nonatomic) NSArray *topArtists;
 @property Country county;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *countriesBarButtonItem;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButtonItem;
 
 @end
 
@@ -107,7 +107,11 @@
 
 - (void)populate
 {
-    self.county = CountryIsrael;
+    [self selectCountry:CountryIL];
+}
+
+- (void)selectCountry:(Country)country {
+    self.county = country;
     [self.model topArtistsFromCountry:self.county complete:^(NSArray *topArtists)
      {
          self.topArtists = topArtists;
@@ -147,10 +151,58 @@
 #pragma mark Actions
 
 - (IBAction)countriesTapped:(UIBarButtonItem *)sender {
-    UITableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Countries"];
-    self.currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-    [self.currentPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    FlagsPopoverViewController *contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"flags"];
+    contentViewController.delegate = self;
+    
+    // Display Mode: Change this to display the popover display style.
+    contentViewController.modalPresentationStyle = UIModalPresentationPopover;
+    
+    // Set the popoverPresentationController property of the content view controller
+    UIPopoverPresentationController *detailPopover = contentViewController.popoverPresentationController;
+    
+    
+    // Set delegate and add delegate methods to display in fullscreen for iPhone
+    detailPopover.delegate = self;
+    
+    // Button to display popover from
+    detailPopover.barButtonItem = sender;
+    detailPopover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    [self presentViewController:contentViewController animated:YES completion:nil];
 }
 
+#pragma mark FlagsPopoverViewControllerDelegate
 
+- (void) flagsPopoverViewControllerDelegateSelectedCountry:(Country)country
+{
+    [self selectCountry:country];
+    NSString *countryImageName =  [self imageNameFromCountry:country];
+    self.countryButtonItem.image = [UIImage imageNamed:countryImageName];
+}
+
+#pragma mark helpers
+
+- (NSString *)imageNameFromCountry:(Country) country {
+    switch (country) {
+        case CountryIL:
+            return @"il";
+            break;
+        case CountryUS:
+            return @"us";
+            break;
+        case CountryGB:
+            return @"gb";
+            break;
+        case CountryCA:
+            return @"ca";
+            break;
+        case CountryFR:
+            return @"fr";
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
+
+                                         
 @end
