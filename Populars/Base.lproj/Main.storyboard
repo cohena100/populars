@@ -239,11 +239,16 @@
                             <outlet property="delegate" destination="SRh-ik-S9B" id="vMw-fL-YI8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Popular Artists" id="TG8-ck-dDV"/>
+                    <navigationItem key="navigationItem" title="Popular Artists" id="TG8-ck-dDV">
+                        <barButtonItem key="rightBarButtonItem" image="il" id="Pjs-Je-ecl"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7K-SQ-uVS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333" y="525"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="il" width="28" height="20"/>
+    </resources>
 </document>
