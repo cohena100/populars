@@ -51,19 +51,23 @@
     }];
 }
 
-- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(NSArray *traks, NSArray *images))complete
+- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(NSArray *tracks, NSArray *images))complete
 {
     [self.server tracksFromAlbum:album artist:artist complete:^(Response *response) {
-        NSArray *traks = nil;
+        NSArray *tracks = nil;
         NSArray *images = nil;
         if (response.ok) {
-            traks = response.body[@"album"][@"tracks"][@"track"];
+            if ([response.body[@"album"][@"tracks"][@"track"] isKindOfClass:[NSDictionary class]]) {
+                tracks = @[response.body[@"album"][@"tracks"][@"track"]];
+            } else {
+                tracks = response.body[@"album"][@"tracks"][@"track"];
+            }
             images = response.body[@"album"][@"image"];
         }
         else {
             NSLog(@"%@", response);
         }
-        complete(traks, images);
+        complete(tracks, images);
     }];
 }
 

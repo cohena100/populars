@@ -18,6 +18,6 @@
 
 - (void)topArtistsFromCountry:(Country)country complete:(void (^)(NSArray *topArtists))complete;
 - (void)topAlbumsFromArtist:(NSString *)artist complete:(void (^)(NSArray *topAlbums))complete;
-- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(NSArray *traks, NSArray *images))complete;
+- (void)tracksFromAlbum:(NSString *)album artist:(NSString *)artist complete:(void (^)(NSArray *tracks, NSArray *images))complete;
 
 @end
