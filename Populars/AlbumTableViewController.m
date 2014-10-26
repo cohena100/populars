@@ -58,8 +58,8 @@
         UIImage *originalImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
         UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(126, 126)];
         cell.albumImageView.image = resizedImage;
-        cell.albumImageView.layer.cornerRadius = 4;
-        cell.albumImageView.layer.masksToBounds = YES;
+//        cell.albumImageView.layer.cornerRadius = 4;
+//        cell.albumImageView.layer.masksToBounds = YES;
         return cell;
     }
     else {
