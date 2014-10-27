@@ -12,6 +12,7 @@
 #import "ArtistsTableViewCell.h"
 #import "AlbumsCollectionViewController.h"
 #import "AlbumsCollectionViewCell.h"
+#import "ImagesCache.h"
 
 @interface ArtistsTableViewController ()
 
@@ -19,7 +20,7 @@
 @property Country county;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButtonItem;
-@property (strong, nonatomic) NSCache *images;
+@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -36,8 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.images = [NSCache new];
-
+    self.imagesCache = [ImagesCache globalCache];
+    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
     
@@ -92,12 +93,7 @@
     cell.artistListenersLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     
     NSURL *imageURL = [self correctImageUrl:artist[@"image"]];
-    UIImage *cachedImage = [self.images objectForKey:[imageURL absoluteString]];
-    if (!cachedImage) {
-        UIImage *serverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-        cachedImage = [self imageWithImage:serverImage scaledToSize:CGSizeMake(64, 48)];
-        [self.images setObject:cachedImage forKey:[imageURL absoluteString]];
-    }
+    UIImage *cachedImage = [self.imagesCache imageForURL:imageURL width:64 height:48];
     cell.artistImageView.image = cachedImage;
 //    cell.artistImageView.layer.cornerRadius = 4;
 //    cell.artistImageView.layer.masksToBounds = YES;

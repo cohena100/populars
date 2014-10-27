@@ -9,11 +9,13 @@
 #import "AlbumTableViewController.h"
 #import "Model.h"
 #import "AlbumTableViewCell.h"
+#import "ImagesCache.h"
 
 @interface AlbumTableViewController ()
 
 @property (strong, nonatomic) NSArray *tracks;
 @property (strong, nonatomic) NSArray *images;
+@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -22,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.imagesCache = [ImagesCache globalCache];
+
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
     
@@ -55,9 +59,8 @@
     if (row == 0) {
         AlbumTableViewCell *cell = (AlbumTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"image" forIndexPath:indexPath];
         NSURL *imageURL = [self correctImageUrl:self.images];
-        UIImage *originalImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-        UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(126, 126)];
-        cell.albumImageView.image = resizedImage;
+        UIImage *cachedImage = [self.imagesCache imageForURL:imageURL width:126 height:126];
+        cell.albumImageView.image = cachedImage;
 //        cell.albumImageView.layer.cornerRadius = 4;
 //        cell.albumImageView.layer.masksToBounds = YES;
         return cell;

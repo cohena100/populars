@@ -10,10 +10,12 @@
 #import "Model.h"
 #import "AlbumsCollectionViewCell.h"
 #import "AlbumTableViewController.h"
+#import "ImagesCache.h"
 
 @interface AlbumsCollectionViewController ()
 
 @property (strong, nonatomic) NSArray *topAlbums;
+@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -21,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.imagesCache = [ImagesCache globalCache];
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.estimatedItemSize = CGSizeMake(126, 178);
@@ -68,9 +72,8 @@
     
     NSDictionary *album = self.topAlbums[indexPath.row];
     NSURL *imageURL = [self correctImageUrl:album[@"image"]];
-    UIImage *originalImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-    UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(126, 126)];
-    cell.albumImageView.image = resizedImage;
+    UIImage *cachedImage = [self.imagesCache imageForURL:imageURL width:126 height:126];
+    cell.albumImageView.image = cachedImage;
 //    cell.albumImageView.layer.cornerRadius = 4;
 //    cell.albumImageView.layer.masksToBounds = YES;
     
