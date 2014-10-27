@@ -19,6 +19,7 @@
 @property Country county;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButtonItem;
+@property (strong, nonatomic) NSCache *images;
 
 @end
 
@@ -34,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.images = [NSCache new];
 
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
@@ -89,9 +92,13 @@
     cell.artistListenersLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     
     NSURL *imageURL = [self correctImageUrl:artist[@"image"]];
-    UIImage *originalImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-    UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(64, 48)];
-    cell.artistImageView.image = resizedImage;
+    UIImage *cachedImage = [self.images objectForKey:[imageURL absoluteString]];
+    if (!cachedImage) {
+        UIImage *serverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+        cachedImage = [self imageWithImage:serverImage scaledToSize:CGSizeMake(64, 48)];
+        [self.images setObject:cachedImage forKey:[imageURL absoluteString]];
+    }
+    cell.artistImageView.image = cachedImage;
 //    cell.artistImageView.layer.cornerRadius = 4;
 //    cell.artistImageView.layer.masksToBounds = YES;
     
