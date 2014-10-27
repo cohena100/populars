@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class Model;
+@class ImagesCache;
 
 @interface AlbumTableViewController : UITableViewController
 
 @property(strong, nonatomic) NSString *artist;
 @property(strong, nonatomic) NSString *album;
 @property (strong, nonatomic) Model *model;
+@property (weak, nonatomic) ImagesCache *imagesCache;
 
 @end

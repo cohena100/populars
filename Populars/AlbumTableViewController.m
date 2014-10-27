@@ -15,7 +15,6 @@
 
 @property (strong, nonatomic) NSArray *tracks;
 @property (strong, nonatomic) NSArray *images;
-@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -24,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imagesCache = [ImagesCache globalCache];
-
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
     

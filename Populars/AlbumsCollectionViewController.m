@@ -15,7 +15,6 @@
 @interface AlbumsCollectionViewController ()
 
 @property (strong, nonatomic) NSArray *topAlbums;
-@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -23,9 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.imagesCache = [ImagesCache globalCache];
-    
+        
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.estimatedItemSize = CGSizeMake(126, 178);
     
@@ -53,6 +50,7 @@
          controller.artist = self.artist;
          controller.album = album[@"name"];
          controller.model = self.model;
+         controller.imagesCache = self.imagesCache;
      }
  }
 

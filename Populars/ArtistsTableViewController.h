@@ -11,10 +11,12 @@
 
 @class DetailViewController;
 @class Model;
+@class ImagesCache;
 
 @interface ArtistsTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate, FlagsPopoverViewControllerDelegate>
 
 @property (strong, nonatomic) Model *model;
+@property (weak, nonatomic) ImagesCache *imagesCache;
 
 @end
 

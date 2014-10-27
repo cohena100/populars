@@ -20,7 +20,6 @@
 @property Country county;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButtonItem;
-@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -36,8 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.imagesCache = [ImagesCache globalCache];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
@@ -67,6 +64,7 @@
         NSDictionary *artist = self.topArtists[indexPath.row];
         AlbumsCollectionViewController *controller = (AlbumsCollectionViewController *)[segue destinationViewController];
         controller.artist = artist[@"name"];
+        controller.imagesCache = self.imagesCache;
         controller.model = self.model;
     }
 }

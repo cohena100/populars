@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class Model;
+@class ImagesCache;
 
 @interface AlbumsCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property(strong, nonatomic) NSString *artist;
 @property (strong, nonatomic) Model *model;
+@property (weak, nonatomic) ImagesCache *imagesCache;
 
 @end

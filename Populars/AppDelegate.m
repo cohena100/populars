@@ -10,10 +10,12 @@
 #import "Model.h"
 #import "ArtistsTableViewController.h"
 #import "Server.h"
+#import "ImagesCache.h"
 
 @interface AppDelegate ()
 
 @property(strong, nonatomic) Model *model;
+@property (strong, nonatomic) ImagesCache *imagesCache;
 
 @end
 
@@ -23,9 +25,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.tintColor = [UIColor brownColor];
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    self.imagesCache = [ImagesCache globalCache];
     [self setupModel];
     ArtistsTableViewController *masterViewController = (ArtistsTableViewController *)navigationController.topViewController;
     masterViewController.model = self.model;
+    masterViewController.imagesCache = self.imagesCache;
     return YES;
 }
 
