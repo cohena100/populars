@@ -11,6 +11,7 @@
 @interface ImagesCache ()
 
 @property (strong, nonatomic) NSCache *images;
+@property (strong, nonatomic) NSOperationQueue* queue;
 
 @end
 
@@ -19,18 +20,25 @@
 + (ImagesCache *)globalCache {
     ImagesCache *cache = [ImagesCache new];
     cache.images = [NSCache new];
+    cache.queue = [[NSOperationQueue alloc] init];
     return cache;
 }
 
 
-- (UIImage *)imageForURL:(NSURL *)url width:(NSUInteger)width height:(NSUInteger)height {
-    UIImage *cachedImage = [self.images objectForKey:[url absoluteString]];
-    if (!cachedImage) {
-        UIImage *serverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-        cachedImage = [self imageWithImage:serverImage scaledToSize:CGSizeMake(width, height)];
-        [self.images setObject:cachedImage forKey:[url absoluteString]];
+- (void)imageForURL:(NSURL *)url width:(NSUInteger)width height:(NSUInteger)height complete:(void (^)(UIImage *))complete {
+    __block UIImage *cachedImage = [self.images objectForKey:[url absoluteString]];
+    if (cachedImage) {
+        complete(cachedImage);
+    } else {
+        [self.queue addOperationWithBlock:^{
+            UIImage *serverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            cachedImage = [self imageWithImage:serverImage scaledToSize:CGSizeMake(width, height)];
+            [self.images setObject:cachedImage forKey:[url absoluteString]];
+            [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
+                complete(cachedImage);
+            }];
+        }];
     }
-    return cachedImage;
 }
 
 #pragma mark helpers

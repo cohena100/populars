@@ -12,6 +12,6 @@
 
 + (ImagesCache *)globalCache;
 
-- (UIImage *)imageForURL:(NSURL *)url width:(NSUInteger)width height:(NSUInteger)height;
+- (void)imageForURL:(NSURL *)url width:(NSUInteger)width height:(NSUInteger)height complete:(void (^)(UIImage *))complete;
 
 @end

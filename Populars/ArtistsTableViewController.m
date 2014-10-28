@@ -91,8 +91,14 @@
     cell.artistListenersLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     
     NSURL *imageURL = [self correctImageUrl:artist[@"image"]];
-    UIImage *cachedImage = [self.imagesCache imageForURL:imageURL width:64 height:48];
-    cell.artistImageView.image = cachedImage;
+    cell.tag = indexPath.row;
+    cell.artistImageView.image = nil;
+    [self.imagesCache imageForURL:imageURL width:64 height:48 complete:^(UIImage *cachedImage) {
+        if (cell.tag == indexPath.row) {
+            cell.artistImageView.image = cachedImage;
+            [cell setNeedsLayout];
+        }
+    }];
 //    cell.artistImageView.layer.cornerRadius = 4;
 //    cell.artistImageView.layer.masksToBounds = YES;
     

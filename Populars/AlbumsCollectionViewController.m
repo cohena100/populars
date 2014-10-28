@@ -70,8 +70,14 @@
     
     NSDictionary *album = self.topAlbums[indexPath.row];
     NSURL *imageURL = [self correctImageUrl:album[@"image"]];
-    UIImage *cachedImage = [self.imagesCache imageForURL:imageURL width:126 height:126];
-    cell.albumImageView.image = cachedImage;
+    cell.albumImageView.image = nil;
+    cell.tag = indexPath.row;
+    [self.imagesCache imageForURL:imageURL width:126 height:126 complete:^(UIImage *cachedImage) {
+        if (cell.tag == indexPath.row) {
+            cell.albumImageView.image = cachedImage;
+            [cell setNeedsLayout];
+        }
+    }];
 //    cell.albumImageView.layer.cornerRadius = 4;
 //    cell.albumImageView.layer.masksToBounds = YES;
     
