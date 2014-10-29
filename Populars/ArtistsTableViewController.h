@@ -13,7 +13,7 @@
 @class Model;
 @class ImagesCache;
 
-@interface ArtistsTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate, FlagsPopoverViewControllerDelegate>
+@interface ArtistsTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate, FlagsPopoverViewControllerDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
 @property (strong, nonatomic) Model *model;
 @property (weak, nonatomic) ImagesCache *imagesCache;

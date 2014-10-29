@@ -17,6 +17,8 @@
 @interface ArtistsTableViewController ()
 
 @property (strong, nonatomic) NSArray *topArtists;
+@property (strong, nonatomic) NSArray *allTopArtists;
+@property (strong, nonatomic) UISearchController* searchController;
 @property Country county;
 @property (strong, nonatomic) UIPopoverController *currentPopoverController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButtonItem;
@@ -39,6 +41,15 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 65;
     
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.delegate = self;
+    self.searchController.hidesNavigationBarDuringPresentation = false;
+    self.searchController.dimsBackgroundDuringPresentation = false;
+    self.searchController.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.frame), 44.0);
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil];
     
     [self populate];
@@ -121,6 +132,7 @@
     self.county = country;
     [self.model topArtistsFromCountry:self.county complete:^(NSArray *topArtists)
      {
+         self.allTopArtists = topArtists;
          self.topArtists = topArtists;
          [self.tableView reloadData];
      }];
@@ -211,5 +223,31 @@
     return nil;
 }
 
-                                         
+#pragma mark UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchText = searchController.searchBar.text;
+    NSArray *searchResults = [self.allTopArtists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(name contains[c] %@)", searchText]];
+    self.topArtists = searchResults;
+    [self.tableView reloadData];
+}
+
+#pragma mark UISearchControllerDelegate
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+}
+
+- (void)didPresentSearchController:(UISearchController *)searchController {
+    self.topArtists = self.allTopArtists;
+    [self.tableView reloadData];
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+}
+
+- (void)didDismissSearchController:(UISearchController *)searchController {
+    self.topArtists = self.allTopArtists;
+    [self.tableView reloadData];
+}
+
 @end
