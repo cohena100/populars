@@ -42,7 +42,11 @@
     [self.server topAlbumsFromArtist:artist complete:^(Response *response) {
         NSArray *topAlbums = nil;
         if (response.ok) {
-            topAlbums = response.body[@"topalbums"][@"album"];
+            if ([response.body[@"topalbums"][@"album"] isKindOfClass:[NSDictionary class]]) {
+                topAlbums = @[response.body[@"topalbums"][@"album"]];
+            } else {
+                topAlbums = response.body[@"topalbums"][@"album"];
+            }
         }
         else {
             NSLog(@"%@", response);
